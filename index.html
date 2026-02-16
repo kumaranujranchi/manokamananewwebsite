@@ -340,6 +340,7 @@
             </div>
             
             <div class="testimonial-track-container" id="testimonial-container">
+                <button class="testimonial-nav prev" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
                 <div class="testimonial-track" id="testimonial-track">
                     <!-- Testimonial 1 -->
                     <div class="testimonial-card">
@@ -413,6 +414,7 @@
                         </div>
                     </div>
                 </div>
+                <button class="testimonial-nav next" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
             </div>
 
             <div class="testimonial-stats wow animate__animated animate__fadeInUp">
@@ -727,49 +729,64 @@
 
         // Testimonial Carousel Logic (Auto-scroll & Touch)
         const testimonialTrack = document.getElementById('testimonial-track');
-        if (testimonialTrack) {
+        const testimonialContainer = document.getElementById('testimonial-container');
+
+        if (testimonialTrack && testimonialContainer) {
             let isDown = false;
             let startX;
             let scrollLeft;
+            
+            // Button Navigation
+            const prevBtn = document.querySelector('.testimonial-nav.prev');
+            const nextBtn = document.querySelector('.testimonial-nav.next');
+            
+            if(prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    testimonialContainer.scrollBy({ left: -320, behavior: 'smooth' }); 
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                   testimonialContainer.scrollBy({ left: 320, behavior: 'smooth' });
+                });
+            }
 
             testimonialTrack.addEventListener('mousedown', (e) => {
                 isDown = true;
                 testimonialTrack.classList.add('active');
-                startX = e.pageX - testimonialTrack.offsetLeft;
-                scrollLeft = testimonialTrack.scrollLeft;
+                startX = e.pageX - testimonialContainer.offsetLeft;
+                scrollLeft = testimonialContainer.scrollLeft;
             });
+
             testimonialTrack.addEventListener('mouseleave', () => {
                 isDown = false;
                 testimonialTrack.classList.remove('active');
             });
+
             testimonialTrack.addEventListener('mouseup', () => {
                 isDown = false;
                 testimonialTrack.classList.remove('active');
             });
+
             testimonialTrack.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
-                const x = e.pageX - testimonialTrack.offsetLeft;
+                const x = e.pageX - testimonialContainer.offsetLeft;
                 const walk = (x - startX) * 2; //scroll-fast
-                testimonialTrack.scrollLeft = scrollLeft - walk;
+                testimonialContainer.scrollLeft = scrollLeft - walk;
             });
 
             // Gentle Auto-Scroll
-            let scrollAmount = 0;
             function autoScrollTestimonials() {
-                // Determine if we should scroll
-                // if (window.innerWidth > 768) return; // Optional: Only on mobile?
-                
                  if (!isDown) { // Pause on interaction
-                    testimonialTrack.scrollLeft += 0.5;
+                    testimonialContainer.scrollLeft += 0.5;
                     // Reset if reached end (infinite loop illusion needs cloning, simple reset for now)
-                     if(testimonialTrack.scrollLeft >= (testimonialTrack.scrollWidth - testimonialTrack.clientWidth)) {
-                        testimonialTrack.scrollLeft = 0;
+                     if(testimonialContainer.scrollLeft >= (testimonialContainer.scrollWidth - testimonialContainer.clientWidth)) {
+                        testimonialContainer.scrollLeft = 0;
                      }
                  }
                  requestAnimationFrame(autoScrollTestimonials);
             }
-            // autoScrollTestimonials(); // Uncommon for horizontal cards to auto-scroll forever without cloning
+            // autoScrollTestimonials(); // Uncomment if auto-scroll is desired
         }
 
         // FAQ Accordion Logic
