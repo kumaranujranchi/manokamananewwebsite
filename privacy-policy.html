@@ -27,16 +27,37 @@
                         <span class="brand-tagline">17+ YEARS OF EXCELLENCE</span>
                     </div>
                 </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#projects">Projects</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Media</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <div class="nav-links">
+                    <div class="mobile-menu-header">
+                        <img src="Manokamna Logo.png" alt="Manokamna Logo">
+                        <div class="close-menu" id="close-menu">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="mobile-menu-footer">
+                        <div class="mobile-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+917050167111">+91 7050167111</a>
+                        </div>
+                        <div class="mobile-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kaliket Nagar, Rupaspur, Patna</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="nav-extra">
                     <a href="tel:+917050167111" class="btn-main">Enquire Now</a>
+                </div>
+                <div class="mobile-menu" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
                 </div>
             </nav>
         </div>
@@ -270,7 +291,7 @@
                 </div>
             </div>
             <div class="designer-credit" style="text-align: center; padding-bottom: 20px;">
-                <p>Design and Maintained by <a href="#" style="color: var(--primary-color);">Synergy Brand Architect</a></p>
+                <p style="font-size: 14px; opacity: 0.8; margin-top: 5px;">This website is running on <a href="http://www.siteonsub.com" target="_blank" style="color: var(--primary-color);">SiteOnSub</a></p>
             </div>
         </div>
     </footer>
@@ -294,18 +315,22 @@
         });
 
         // Mobile Menu Toggle
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenu.querySelector('i').classList.toggle('fa-bars');
-            mobileMenu.querySelector('i').classList.toggle('fa-times');
-        });
+        const closeMenu = document.getElementById('close-menu');
+        const navList = navLinks.querySelector('.nav-list');
 
-        // Close menu when clicking links
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        mobileMenu.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                mobileMenu.querySelector('i').classList.add('fa-bars');
-                mobileMenu.querySelector('i').classList.remove('fa-times');
+                document.body.style.overflow = 'auto';
             });
         });
     </script>
