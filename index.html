@@ -65,7 +65,13 @@
                     <ul class="nav-list">
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="index.html#projects">Projects</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" onclick="event.preventDefault()">Projects <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="running-projects.html">Running Projects</a></li>
+                                <li><a href="completed-projects.html">Completed Projects</a></li>
+                            </ul>
+                        </li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="media.html">Media</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -326,6 +332,178 @@
     </section>
     
     <!-- Final CTA/Quick Actions -->
+    <section class="testimonial-section wow animate__animated animate__fadeIn">
+        <div class="container">
+            <div class="testimonial-header">
+                <h2>What Our Customers Say</h2>
+                <p>Read genuine reviews from over 1000+ satisfied customers who trusted us with their property investments</p>
+            </div>
+            
+            <div class="testimonial-track-container" id="testimonial-container">
+                <div class="testimonial-track" id="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-quote-icon">❝</div>
+                        <p class="testimonial-text">"MANOKAMNA MARKETING made the buying process so easy and transparent. The team guided us through every step, from site selection to final registry. Highly recommended for investment in Patna!"</p>
+                        <div class="testimonial-author">
+                            <h4>Rajesh Kumar</h4>
+                            <span>Patna</span>
+                            <div class="project-tag">Residential Plot</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-quote-icon">❝</div>
+                        <p class="testimonial-text">"IIT Colony, Bihta is exactly what my family needed—secure, well-connected, and promising future returns! The location near IIT and upcoming airport makes it a perfect investment choice."</p>
+                        <div class="testimonial-author">
+                            <h4>Priya Singh</h4>
+                            <span>Delhi</span>
+                            <div class="project-tag">Investment Plot</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-quote-icon">❝</div>
+                        <p class="testimonial-text">"After researching multiple options, I chose Manokamna Marketing for their transparency and expertise. The flexible payment options and Genuine Land assurance gave me complete confidence."</p>
+                        <div class="testimonial-author">
+                            <h4>Amit Sharma</h4>
+                            <span>Mumbai</span>
+                            <div class="project-tag">Commercial Plot</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-quote-icon">❝</div>
+                        <p class="testimonial-text">"Excellent service and genuine people. They helped us find the perfect plot within our budget. The entire process was smooth, and we received all documents on time."</p>
+                        <div class="testimonial-author">
+                            <h4>Sunita Devi</h4>
+                            <span>Patna</span>
+                            <div class="project-tag">Residential Plot</div>
+                        </div>
+                    </div>
+
+                     <!-- Testimonial 5 -->
+                     <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-quote-icon">❝</div>
+                        <p class="testimonial-text">"I invested in IIT Colony based on their market analysis and future growth potential. One year later, I can see the development progress and appreciate the wise investment decision."</p>
+                        <div class="testimonial-author">
+                            <h4>Vikash Gupta</h4>
+                            <span>Gurgaon</span>
+                            <div class="project-tag">Investment Plot</div>
+                        </div>
+                    </div>
+
+                     <!-- Testimonial 6 -->
+                     <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-quote-icon">❝</div>
+                        <p class="testimonial-text">"Professional team with deep market knowledge. They explained all the legal aspects clearly and ensured a hassle-free buying experience. Very satisfied with their service."</p>
+                        <div class="testimonial-author">
+                            <h4>Rekha Mishra</h4>
+                            <span>Kolkata</span>
+                            <div class="project-tag">Residential Plot</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-stats wow animate__animated animate__fadeInUp">
+                <div class="stat-box">
+                    <h3>1000+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-box">
+                    <h3>4.9/5</h3>
+                    <p>Average Rating</p>
+                </div>
+                <div class="stat-box">
+                    <h3>17+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section wow animate__animated animate__fadeIn">
+        <div class="container faq-container">
+            <div class="testimonial-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about buying property in Patna</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item wow animate__animated animate__fadeInUp">
+                    <div class="faq-question">
+                        How to buy property in Patna?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Identify projects with 100% Genuine Land, check legal documents, and ensure transparent payment schedules. Our team guides you step by step through the entire process, from site selection to final registry.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                    <div class="faq-question">
+                        What is Genuine Land and the registry process?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Genuine Land means clear title, verified documents, and transparent processes. Registry is the legal process that transfers ownership of plots to buyers, making you the lawful owner of the property.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                    <div class="faq-question">
+                        Benefits of investing in plotted townships?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Plots offer higher appreciation potential, flexibility in construction timing and design, better long-term ROI compared to flats, and the freedom to build according to your specific needs and preferences.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                    <div class="faq-question">
+                        What payment options are available?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible installment plans, attractive spot booking discounts, and special investor packages. All legal documentation and deeds are handled with complete transparency by our expert team.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                    <div class="faq-question">
+                        How to book a virtual tour or free site visit?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contact us via phone at 7050167111 or WhatsApp to book a guided site tour. We also provide virtual property walkthroughs for your convenience, allowing you to explore projects from anywhere.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-cta-box wow animate__animated animate__fadeInUp">
+                <h3>Still have questions?</h3>
+                <p>Our expert team is here to help you make the right investment decision</p>
+                <div class="faq-cta-buttons">
+                    <a href="tel:+917050167111" class="btn-main" style="background-color: #0d3b24; color: #fff;">Call Now: 7050167111</a>
+                    <a href="https://wa.me/917779917333" class="btn-outline">WhatsApp Chat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA/Quick Actions -->
     <section class="section" id="quick-links">
         <div class="container">
             <div class="featured-project wow animate__animated animate__zoomIn" style="background-color: var(--secondary-color); color: var(--white); text-align: center; display: block; padding: 60px;">
@@ -546,6 +724,75 @@
                  });
              }
         }
+
+        // Testimonial Carousel Logic (Auto-scroll & Touch)
+        const testimonialTrack = document.getElementById('testimonial-track');
+        if (testimonialTrack) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            testimonialTrack.addEventListener('mousedown', (e) => {
+                isDown = true;
+                testimonialTrack.classList.add('active');
+                startX = e.pageX - testimonialTrack.offsetLeft;
+                scrollLeft = testimonialTrack.scrollLeft;
+            });
+            testimonialTrack.addEventListener('mouseleave', () => {
+                isDown = false;
+                testimonialTrack.classList.remove('active');
+            });
+            testimonialTrack.addEventListener('mouseup', () => {
+                isDown = false;
+                testimonialTrack.classList.remove('active');
+            });
+            testimonialTrack.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - testimonialTrack.offsetLeft;
+                const walk = (x - startX) * 2; //scroll-fast
+                testimonialTrack.scrollLeft = scrollLeft - walk;
+            });
+
+            // Gentle Auto-Scroll
+            let scrollAmount = 0;
+            function autoScrollTestimonials() {
+                // Determine if we should scroll
+                // if (window.innerWidth > 768) return; // Optional: Only on mobile?
+                
+                 if (!isDown) { // Pause on interaction
+                    testimonialTrack.scrollLeft += 0.5;
+                    // Reset if reached end (infinite loop illusion needs cloning, simple reset for now)
+                     if(testimonialTrack.scrollLeft >= (testimonialTrack.scrollWidth - testimonialTrack.clientWidth)) {
+                        testimonialTrack.scrollLeft = 0;
+                     }
+                 }
+                 requestAnimationFrame(autoScrollTestimonials);
+            }
+            // autoScrollTestimonials(); // Uncommon for horizontal cards to auto-scroll forever without cloning
+        }
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
     </script>
 </body>
 </html>
