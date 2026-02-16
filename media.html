@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media & Press Coverage - Manokamna Marketing</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .media-hero {
+            padding: 150px 0 60px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .polaroid-item {
+            background: #fff;
+            padding: 15px 15px 45px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            position: relative;
+            transform: rotate(-2deg);
+        }
+
+        .polaroid-item:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid-item:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .polaroid-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .polaroid-label {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Figtree', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .pin {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 5;
+        }
+
+        .pin::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+            .polaroid-item {
+                transform: rotate(0deg) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="Manokamna Logo.png" alt="Manokamna Marketing Logo">
+                <div class="logo-text">
+                    <span class="brand-name">MANOKAMNA MARKETING</span>
+                    <span class="brand-tagline">17+ YEARS OF EXCELLENCE</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="media.html" class="active">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="media-hero">
+            <div class="container animate__animated animate__fadeIn">
+                <span class="subtitle" style="color: var(--primary-color);">Press Coverage & News</span>
+                <h1 style="color: var(--white);">Our Achievements & Milestones</h1>
+                <p style="opacity: 0.8; max-width: 600px; margin: 20px auto 0;">As featured in leading newspapers and media outlets across Bihar.</p>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #fdfdfd;">
+            <div class="container">
+                <div class="media-grid">
+                    <!-- Press Item 1 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn">
+                        <div class="pin"></div>
+                        <img src="media/press-1.jpg" alt="Press Coverage 1">
+                        <div class="polaroid-label">Press Coverage #1</div>
+                    </div>
+                    <!-- Press Item 2 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.1s">
+                        <div class="pin"></div>
+                        <img src="media/press-2.jpg" alt="Press Coverage 2">
+                        <div class="polaroid-label">Press Coverage #2</div>
+                    </div>
+                    <!-- Press Item 3 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
+                        <div class="pin"></div>
+                        <img src="media/press-3.jpg" alt="Press Coverage 3">
+                        <div class="polaroid-label">Press Coverage #3</div>
+                    </div>
+                    <!-- Press Item 4 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.3s">
+                        <div class="pin"></div>
+                        <img src="media/press-4.jpg" alt="Press Coverage 4">
+                        <div class="polaroid-label">Press Coverage #4</div>
+                    </div>
+                    <!-- Press Item 5 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn">
+                        <div class="pin"></div>
+                        <img src="media/press-5.jpg" alt="Press Coverage 5">
+                        <div class="polaroid-label">Press Coverage #5</div>
+                    </div>
+                    <!-- Press Item 6 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.1s">
+                        <div class="pin"></div>
+                        <img src="media/press-6.jpg" alt="Press Coverage 6">
+                        <div class="polaroid-label">Press Coverage #6</div>
+                    </div>
+                    <!-- Press Item 7 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
+                        <div class="pin"></div>
+                        <img src="media/press-7.jpg" alt="Press Coverage 7">
+                        <div class="polaroid-label">Press Coverage #7</div>
+                    </div>
+                    <!-- Press Item 8 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.3s">
+                        <div class="pin"></div>
+                        <img src="media/press-8.jpg" alt="Press Coverage 8">
+                        <div class="polaroid-label">Press Coverage #8</div>
+                    </div>
+                    <!-- Press Item 9 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn">
+                        <div class="pin"></div>
+                        <img src="media/press-9.jpg" alt="Press Coverage 9">
+                        <div class="polaroid-label">Press Coverage #9</div>
+                    </div>
+                    <!-- Press Item 10 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.1s">
+                        <div class="pin"></div>
+                        <img src="media/press-10.jpg" alt="Press Coverage 10">
+                        <div class="polaroid-label">Press Coverage #10</div>
+                    </div>
+                    <!-- Press Item 11 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
+                        <div class="pin"></div>
+                        <img src="media/press-11.jpg" alt="Press Coverage 11">
+                        <div class="polaroid-label">Press Coverage #11</div>
+                    </div>
+                    <!-- Press Item 12 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.3s">
+                        <div class="pin"></div>
+                        <img src="media/press-12.jpg" alt="Press Coverage 12">
+                        <div class="polaroid-label">Press Coverage #12</div>
+                    </div>
+                    <!-- Press Item 13 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn">
+                        <div class="pin"></div>
+                        <img src="media/press-13.jpg" alt="Press Coverage 13">
+                        <div class="polaroid-label">Press Coverage #13</div>
+                    </div>
+                    <!-- Press Item 14 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.1s">
+                        <div class="pin"></div>
+                        <img src="media/press-14.jpg" alt="Press Coverage 14">
+                        <div class="polaroid-label">Press Coverage #14</div>
+                    </div>
+                    <!-- Press Item 15 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
+                        <div class="pin"></div>
+                        <img src="media/press-15.jpg" alt="Press Coverage 15">
+                        <div class="polaroid-label">Press Coverage #15</div>
+                    </div>
+                    <!-- Press Item 16 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.3s">
+                        <div class="pin"></div>
+                        <img src="media/press-16.jpg" alt="Press Coverage 16">
+                        <div class="polaroid-label">Press Coverage #16</div>
+                    </div>
+                    <!-- Press Item 17 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn">
+                        <div class="pin"></div>
+                        <img src="media/press-17.jpg" alt="Press Coverage 17">
+                        <div class="polaroid-label">Press Coverage #17</div>
+                    </div>
+                    <!-- Press Item 18 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.1s">
+                        <div class="pin"></div>
+                        <img src="media/press-18.jpg" alt="Press Coverage 18">
+                        <div class="polaroid-label">Press Coverage #18</div>
+                    </div>
+                    <!-- Press Item 19 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
+                        <div class="pin"></div>
+                        <img src="media/press-19.jpg" alt="Press Coverage 19">
+                        <div class="polaroid-label">Press Coverage #19</div>
+                    </div>
+                    <!-- Press Item 20 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.3s">
+                        <div class="pin"></div>
+                        <img src="media/press-20.jpg" alt="Press Coverage 20">
+                        <div class="polaroid-label">Press Coverage #20</div>
+                    </div>
+                    <!-- Press Item 21 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn">
+                        <div class="pin"></div>
+                        <img src="media/press-21.jpg" alt="Press Coverage 21">
+                        <div class="polaroid-label">Press Coverage #21</div>
+                    </div>
+                    <!-- Press Item 22 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.1s">
+                        <div class="pin"></div>
+                        <img src="media/press-22.jpg" alt="Press Coverage 22">
+                        <div class="polaroid-label">Press Coverage #22</div>
+                    </div>
+                    <!-- Press Item 23 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
+                        <div class="pin"></div>
+                        <img src="media/press-23.jpg" alt="Press Coverage 23">
+                        <div class="polaroid-label">Press Coverage #23</div>
+                    </div>
+                    <!-- Press Item 24 -->
+                    <div class="polaroid-item wow animate__animated animate__zoomIn" data-wow-delay="0.3s">
+                        <div class="pin"></div>
+                        <img src="media/press-24.jpg" alt="Press Coverage 24">
+                        <div class="polaroid-label">Press Coverage #24</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="margin-bottom: 25px;">
+                        <img src="Manokamna Logo.png" alt="Manokamna Marketing Logo">
+                        <div class="logo-text">
+                            <span class="brand-name">MANOKAMNA MARKETING</span>
+                        </div>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">Leading real estate marketing agency in Patna, committed to transparency and excellence for over 17 years.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="index.html#projects">IIT Colony, Bihta</a></li>
+                        <li><a href="index.html#projects">Smart City Townships</a></li>
+                        <li><a href="index.html#projects">Affordable Plots</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h5>Call Us</h5>
+                            <p>7050167111</p>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Visit Us</h5>
+                            <p>Bailey Road, Patna - 801503</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="designer-credit" style="text-align: center; padding: 40px 0 20px;">
+                <p style="font-size: 14px; opacity: 0.8;">This website is running on <a href="http://www.siteonsub.com" target="_blank" style="color: var(--primary-color);">SiteOnSub</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
