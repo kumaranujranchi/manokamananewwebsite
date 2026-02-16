@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manokamna Marketing - Real Estate in Patna</title>
-    <meta name="description" content="17+ years of excellence in Patna real estate. Genuine plots, land townships, and investment opportunities.">
+    <link rel="icon" type="image/png" href="Manokamna Logo.png">
+    <meta name="description" content="Manokamna Marketing offers genuine land deals, 15+ developed projects, and transparent documentation in Patna and Bihta.">
     
     <!-- Animation Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -64,9 +65,9 @@
                     <ul class="nav-list">
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Media</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="media.html">Media</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                     <div class="mobile-menu-footer">
@@ -218,6 +219,53 @@
         </div>
     </section>
 
+
+    <!-- Visual Showcase (Homely Style) -->
+    <section class="visual-showcase wow animate__animated animate__fadeIn">
+        <div class="container">
+            <div class="showcase-header-wrapper">
+                <div class="section-header" style="text-align: left; margin-bottom: 0; padding: 0;">
+                    <span class="subtitle">Home Gallery</span>
+                    <h2>Designed for Living</h2>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="showcase-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" id="showcase-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-carousel-full">
+            <div class="showcase-track" id="homepage-showcase">
+                <!-- Data will be injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Highlights Section -->
+    <section class="location-highlights wow animate__animated animate__fadeIn">
+        <div class="container">
+            <h2>Location Highlights</h2>
+            <div class="why-choose-grid" style="color: #333;">
+                <div class="choose-item wow animate__animated animate__fadeInUp">
+                    <h4 style="color: #0d3b24;">Connectivity</h4>
+                    <p style="color: #555;">5 Mins from IIT Bihta</p>
+                </div>
+                <div class="choose-item wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                    <h4 style="color: #0d3b24;">Transport</h4>
+                    <p style="color: #555;">Near International Airport</p>
+                </div>
+                <div class="choose-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                    <h4 style="color: #0d3b24;">Education</h4>
+                    <p style="color: #555;">Hub of Educational Inst.</p>
+                </div>
+                <div class="choose-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                    <h4 style="color: #0d3b24;">Growth</h4>
+                    <p style="color: #555;">High Appreciation Area</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Featured Project Section -->
     <section class="section" id="projects" style="background-color: #f8f9fa;">
         <div class="container">
@@ -328,12 +376,10 @@
                     <h3 style="color: var(--white); margin-bottom: 25px;">Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#projects">Projects</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Career</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="media.html">Media</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -443,6 +489,63 @@
                 document.body.style.overflow = 'auto';
             });
         });
+
+        // Homepage Visual Showcase Data
+        const showcaseData = [
+            { path: 'development', items: [1], label: 'Main Entrance' },
+            { path: 'family', items: [4], label: 'Community' },
+            { path: 'registry', items: [2], label: 'Registry Office' },
+            { path: 'events', items: [3], label: 'Ceremony' },
+            { path: 'development', items: [8], label: 'Site View' },
+            { path: 'family', items: [1], label: 'Happy Clients' }
+        ];
+
+        const showcaseTrack = document.getElementById('homepage-showcase');
+        if (showcaseTrack) {
+            showcaseData.forEach(cat => {
+                cat.items.forEach(num => {
+                    const item = document.createElement('div');
+                    item.className = 'showcase-item';
+                    item.innerHTML = `
+                        <img src="media/gallery/${cat.path}/${cat.path}-${num}.jpg" alt="${cat.label}" loading="lazy">
+                        <div class="showcase-overlay">
+                            <span class="showcase-text">${cat.label}</span>
+                        </div>
+                    `;
+                    showcaseTrack.appendChild(item);
+                });
+            });
+            
+            // Auto scroll logic (optional but nice)
+            /* 
+            let scrollAmount = 0;
+            const step = 2;
+            function autoScroll() {
+                showcaseTrack.scrollLeft += step;
+                if (showcaseTrack.scrollLeft >= showcaseTrack.scrollWidth - showcaseTrack.clientWidth) {
+                    showcaseTrack.scrollLeft = 0;
+                }
+                requestAnimationFrame(autoScroll);
+            }
+            // autoScroll(); 
+            */
+
+             // Button Navigation Logic
+             const prevBtn = document.getElementById('showcase-prev');
+             const nextBtn = document.getElementById('showcase-next');
+
+             if (prevBtn && nextBtn) {
+                 prevBtn.addEventListener('click', () => {
+                     const scrollAmount = window.innerWidth < 768 ? 320 : 530; // Card width (500) + gap (30)
+                     showcaseTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                 });
+
+                 nextBtn.addEventListener('click', () => {
+                     const scrollAmount = window.innerWidth < 768 ? 320 : 530;
+                     showcaseTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                 });
+             }
+        }
     </script>
 </body>
 </html>
