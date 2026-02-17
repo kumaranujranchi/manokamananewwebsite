@@ -498,21 +498,18 @@ footer {
 
 /* IIT Colony Info Cards */
 .project-stats-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    flex-wrap: wrap;
     margin-top: 30px;
-    justify-content: center;
 }
 
 .project-stat-item {
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px 30px;
+    padding: 20px;
     border-radius: 12px;
-    min-width: 180px;
     text-align: center;
     backdrop-filter: blur(5px);
-    flex: 0 1 auto;
 }
 
 .project-stat-item h4 {
@@ -558,6 +555,7 @@ footer {
 
 @media (max-width: 768px) {
     .project-stats-row {
+        display: flex;
         flex-direction: column;
         gap: 15px;
         align-items: center;
