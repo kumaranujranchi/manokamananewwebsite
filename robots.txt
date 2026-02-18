@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap link
+Sitemap: https://manokamnaproperties.in/sitemap.xml
+
+# Disallow admin panel for crawlers
+Disallow: /admin/
+Disallow: /process_submission.php
+Disallow: /db.php
