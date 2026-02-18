@@ -404,6 +404,9 @@
                 </div>
             </div>
 
+                </div>
+            </div>
+
             <div class="testimonial-track-container" id="testimonial-container">
                 <div class="testimonial-track" id="testimonial-track">
                     <!-- Testimonial 1 -->
@@ -633,7 +636,91 @@
         </div>
     </section>
 
+    <!-- Forms Section -->
+    <section class="section" id="contact-forms" style="background: #fdfdfd;">
+        <div class="container">
+            <div class="forms-grid">
+                <!-- Enquiry Form -->
+                <div class="form-container wow animate__animated animate__fadeInLeft">
+                    <div class="form-header">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Quick Enquiry</h3>
+                        <p>Have questions? Drop us a message.</p>
+                    </div>
+                    <form id="enquiry-form" class="modern-form">
+                        <input type="hidden" name="type" value="enquiry">
+                        <input type="hidden" name="source_page" value="index.html">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="property">
+                                <option value="">Interested In</option>
+                                <option value="IIT Colony">IIT Colony</option>
+                                <option value="Smart City">Smart City</option>
+                                <option value="Residential Plot">Residential Plot</option>
+                                <option value="Commercial Plot">Commercial Plot</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn-main w-100">Send Enquiry</button>
+                        <div class="form-status" id="enquiry-status"></div>
+                    </form>
+                </div>
+
+                <!-- Site Visit Form -->
+                <div class="form-container wow animate__animated animate__fadeInRight">
+                    <div class="form-header">
+                        <i class="fas fa-car-side"></i>
+                        <h3>Book Site Visit</h3>
+                        <p>Experience the projects in person.</p>
+                    </div>
+                    <form id="site-visit-form" class="modern-form">
+                        <input type="hidden" name="type" value="site_visit">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="visit-date" style="font-size: 13px; color: #666; margin-bottom: 5px; display: block;">Preferred Date</label>
+                            <input type="date" id="visit-date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="time">
+                                <option value="">Preferred Time</option>
+                                <option value="Morning">Morning (10 AM - 12 PM)</option>
+                                <option value="Afternoon">Afternoon (12 PM - 4 PM)</option>
+                                <option value="Evening">Evening (4 PM - 6 PM)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="property">
+                                <option value="">Project Interest</option>
+                                <option value="IIT Colony">IIT Colony</option>
+                                <option value="Smart City">Smart City</option>
+                                <option value="Residential Plot">Residential Plot</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-main w-100">Request Visit</button>
+                        <div class="form-status" id="site-visit-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Footer -->
+
     <footer id="contact">
         <div class="container">
             <div class="footer-grid">
@@ -921,6 +1008,7 @@
             const nextBtn = document.getElementById('testimonial-next');
 
             if (prevBtn && nextBtn) {
+
                 prevBtn.addEventListener('click', () => {
                     const scrollAmount = window.innerWidth < 768 ? 320 : 380;
                     testimonialContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -992,7 +1080,42 @@
                 }
             });
         });
+
+        // Form Submission Logic
+        const handleFormSubmit = (formId, statusId) => {
+            const form = document.getElementById(formId);
+            const status = document.getElementById(statusId);
+
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    status.innerHTML = '<p style="color: blue;">Sending...</p>';
+                    
+                    const formData = new FormData(form);
+                    try {
+                        const response = await fetch('process_submission.php', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const result = await response.json();
+                        
+                        if (result.status === 'success') {
+                            status.innerHTML = `<p style="color: green;">${result.message}</p>`;
+                            form.reset();
+                        } else {
+                            status.innerHTML = `<p style="color: red;">${result.message}</p>`;
+                        }
+                    } catch (error) {
+                        status.innerHTML = '<p style="color: red;">Network error. Please try again.</p>';
+                    }
+                });
+            }
+        };
+
+        handleFormSubmit('enquiry-form', 'enquiry-status');
+        handleFormSubmit('site-visit-form', 'site-visit-status');
     </script>
+
 </body>
 
 </html>
