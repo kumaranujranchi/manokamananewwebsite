@@ -553,7 +553,7 @@ footer {
     margin: 0 auto 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .project-stats-row {
         display: flex;
         flex-direction: column;
@@ -808,7 +808,7 @@ footer {
 }
 
 /* --- Mobile Responsiveness (max-width: 768px) --- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     :root {
         --section-padding: 30px;
     }
@@ -997,6 +997,10 @@ footer {
     .service-content h3 { font-size: 24px; color: #0d1b2a; margin-bottom: 4px; }
     .service-content p { font-size: 15px; color: #666; margin-bottom: 0; }
 
+    .split-image img {
+        object-position: top !important;
+    }
+
     /* Project Highlights Mobile */
     .project-highlight-card {
         padding: 20px;
@@ -1109,6 +1113,12 @@ footer {
         width: 100% !important;
         max-width: 400px !important;
         margin: 0 auto !important;
+    }
+
+    .services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 }
 
@@ -1263,7 +1273,7 @@ footer {
     .showcase-item { flex: 0 0 400px; height: 320px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .showcase-item { flex: 0 0 300px; height: 250px; }
     .visual-showcase h2 { font-size: 32px; }
     .showcase-header-wrapper { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -1512,7 +1522,7 @@ footer {
     color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     :root {
         --section-padding: 30px; /* Reduced from 60px */
     }
@@ -1627,7 +1637,7 @@ footer {
 }
 
 /* Mobile Dropdown */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .dropdown-menu {
         position: static;
         box-shadow: none;
@@ -1686,7 +1696,7 @@ footer {
 
 /* Old .testimonial-nav removed */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .testimonial-track-container {
         padding: 0;
     }
