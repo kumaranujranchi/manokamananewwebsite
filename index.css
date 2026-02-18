@@ -1783,3 +1783,124 @@ footer {
     font-size: 14px;
     font-weight: 500;
 }
+/* Modal system */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 37, 25, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    position: relative;
+    padding: 0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 30px;
+    position: relative;
+}
+
+.modal-header h3 {
+    color: var(--white);
+    margin: 0;
+    font-size: 24px;
+}
+
+.modal-header p {
+    margin: 5px 0 0;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body .modern-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-body .modern-form input,
+.modal-body .modern-form select,
+.modal-body .modern-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.modal-body .modern-form input:focus,
+.modal-body .modern-form select:focus,
+.modal-body .modern-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(181, 201, 154, 0.2);
+}
+
+.modal-body .btn-main {
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 550px) {
+    .modal-content {
+        margin: 20px;
+        max-width: calc(100% - 40px);
+    }
+}
