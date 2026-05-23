@@ -813,7 +813,7 @@
 
             <div
                 style="padding: 40px 0 20px; text-align: center; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                <p style="color: rgba(255,255,255,0.5); font-size: 14px;">&copy; 2025 MANOKAMNA MARKETING. All rights
+                <p style="color: rgba(255,255,255,0.5); font-size: 14px;">&copy; 2026 MANOKAMNA MARKETING. All rights
                     reserved.</p>
                 <div style="display: flex; gap: 30px;">
                     <a href="privacy-policy.html" style="color: rgba(255,255,255,0.5); font-size: 14px;">Privacy Policy</a>
@@ -837,8 +837,8 @@
                 <button class="modal-close" onclick="closeModal('enquiry-modal')"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
-                <form id="enquiry-form" class="modern-form">
-                    <input type="hidden" name="type" value="enquiry">
+                <form id="enquiry-form" class="modern-form" name="enquiry" data-netlify="true">
+                    <input type="hidden" name="form-name" value="enquiry">
                     <input type="hidden" name="source_page" value="index.html">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Full Name" required>
@@ -876,8 +876,8 @@
                 <button class="modal-close" onclick="closeModal('site-visit-modal')"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
-                <form id="site-visit-form" class="modern-form">
-                    <input type="hidden" name="type" value="site_visit">
+                <form id="site-visit-form" class="modern-form" name="site-visit" data-netlify="true">
+                    <input type="hidden" name="form-name" value="site-visit">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Full Name" required>
                     </div>
@@ -1195,21 +1195,27 @@
             if (form) {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    status.innerHTML = '<p style="color: blue;">Sending...</p>';
+                    status.innerHTML = '<p style="color: #0d3b24;">Sending...</p>';
                     
                     const formData = new FormData(form);
+                    const searchParams = new URLSearchParams(formData);
+                    searchParams.set('form-name', form.getAttribute('name'));
+
                     try {
-                        const response = await fetch('process_submission.php', {
+                        const response = await fetch('/', {
                             method: 'POST',
-                            body: formData
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: searchParams.toString()
                         });
-                        const result = await response.json();
                         
-                        if (result.status === 'success') {
-                            status.innerHTML = `<p style="color: green;">${result.message}</p>`;
+                        if (response.ok) {
+                            const successMessage = form.getAttribute('name') === 'enquiry'
+                                ? 'Thank you for your enquiry. We will contact you soon!'
+                                : 'Site visit requested successfully!';
+                            status.innerHTML = `<p style="color: green;">${successMessage}</p>`;
                             form.reset();
                         } else {
-                            status.innerHTML = `<p style="color: red;">${result.message}</p>`;
+                            status.innerHTML = '<p style="color: red;">Something went wrong. Please try again later.</p>';
                         }
                     } catch (error) {
                         status.innerHTML = '<p style="color: red;">Network error. Please try again.</p>';
