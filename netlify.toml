@@ -1,4 +1,4 @@
-# Netlify configuration file
+# Netlify configuration file - Form detection enabled
 
 [build]
   publish = "."
