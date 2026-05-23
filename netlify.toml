@@ -8,12 +8,6 @@
   [build.processing.html]
     pretty_urls = true
 
-# Direct all non-existent paths to the custom 404 page
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
-
 # Safety net: Block direct access to any PHP files or database configs
 [[redirects]]
   from = "/*.php"
